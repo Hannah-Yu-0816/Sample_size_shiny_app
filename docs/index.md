@@ -57,7 +57,7 @@ that seek to uncover treatment effect heterogeneity.
 ---
 
 ## Key Simulation Settings Explained
-| **Setting**                        | **Description** | **Instruction**
+| **Setting**                        | **Description** | **Instruction** |
 |:------------------------------------|:----------------|:-----------------|
 | Number of covariates (d)           | Total covariates generated | |
 | Number of effect modifiers (k)     | Covariates that contribute to the treatment effect | |
@@ -83,7 +83,7 @@ The percentage of heterogeneity captured is calculated as follows:
 
 $$
 \frac{\frac{1}{n_1}\sum\limits_{i \in S_1}CATE\left(\prod_{j=1}^{k} X_{ij}=1;\underset{\sim}{X_{-ij}}\right)
-\-
+-
 \frac{1}{n_0}\sum\limits_{i \in S_0}CATE\left(\prod_{j=1}^{k} X_{ij}=0;\underset{\sim}{X_{-ij}}\right)}
 {ground \ truth \ of \ CATE}
 \times
