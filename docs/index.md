@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 # Sample Size Simulation App
 
 Welcome to the documentation page for the **Sample Size Simulation Shiny App**.
