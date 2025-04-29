@@ -8,7 +8,7 @@ layout: default
 Welcome to the documentation page for the **Sample Size Simulation Shiny App**.
 
 This tool helps researchers estimate the required sample size for detecting treatment effect heterogeneity 
-under different simulation settings.
+under different simulation settings. Hello.
 
 ---
 
