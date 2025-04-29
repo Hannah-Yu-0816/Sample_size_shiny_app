@@ -18,7 +18,7 @@ An interactive Shiny application to help researchers plan sample sizes for detec
 
 ### Documentation
 
-For detailed usage instructions, simulation settings explanation, and screenshots, visit our Documentation Website as follows
+For detailed usage instructions, simulation settings explanation, and screenshots, visit our [Documentation Website](https://hannah-yu-0816.github.io/Sample_size_shiny_app/).
 
 ### Contact
 
