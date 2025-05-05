@@ -143,10 +143,10 @@ Below is a step-by-step explanation of each field:
 1. Structure Settings
 
 - Number of Effect Modifiers: This setting controls how many covariates act as treatment effect modifiers.
-  · The first k covariates (e.g., $X_1$, $X_2$, ..., $X_k$) will be treated as effect modifiers
+  - The first k covariates (e.g., $X_1$, $X_2$, ..., $X_k$) will be treated as effect modifiers
     For example:
-    · If set to 2 → $X_1$ and $X_2$ are effect modifiers
-    · If set to 4 → $X_1$, $X_2$, $X_3$ and $X_4$
+    - If set to 2 → $X_1$ and $X_2$ are effect modifiers
+    - If set to 4 → $X_1$, $X_2$, $X_3$ and $X_4$
   · Maximum allowed: 5
     The input will be capped at 5 to limit complexity
   · Adjusting this value will dynamically update:
