@@ -143,29 +143,74 @@ Below is a step-by-step explanation of each field:
 1. Structure Settings
 
 - Number of Effect Modifiers: This setting controls how many covariates act as treatment effect modifiers.
-  - The first k covariates (e.g., $X_1$, $X_2$, ..., $X_k$) will be treated as effect modifiers
+  - The first k covariates (e.g., $X_1$, $X_2$, ..., $X_k$) will be treated as effect modifiers.
+    
     For example:
     - If set to 2 → $X_1$ and $X_2$ are effect modifiers
     - If set to 4 → $X_1$, $X_2$, $X_3$ and $X_4$
-  · Maximum allowed: 5
-    The input will be capped at 5 to limit complexity
-  · Adjusting this value will dynamically update:
-    · The data generation formula displayed on the right panel
-    · The sidebar to show input fields for each effect modifier's parameters
+  - Maximum allowed: 5
+    - The input will be capped at 5 to limit complexity
+  - Adjusting this value will dynamically update:
+    - The data generation formula displayed on the right panel
+    - The sidebar to show input fields for each effect modifier's parameters
 
 - Number of Other Risk Factors: Defines how many additional covariates affect baseline risk but not the treatment effect.
-  · These covariates are labeled $X_(k+1)$, $X_(k+2)$, ..., continuing from the last effect modifier
+  - These covariates are labeled $X_{k+1}$, $X_{k+2}$, ..., continuing from the last effect modifier.
+    
     For example:
-    · If there are 2 effect modifiers → Other Risk Factors start from $X_3$
-    · If there are 5 effect modifiers → Other Risk Factors start from $X_6$
-  · No upper limit, but increasing this number will add more covariate to the simulation
-  · Updating this value will dynamically:
-    · Extend the data generation formula shown on the right panel
-    · Add new parameter input fields in the sidebar for each added risk factor
+    - If there are 2 effect modifiers → Other Risk Factors start from $X_3$
+    - If there are 5 effect modifiers → Other Risk Factors start from $X_6$
+  - No upper limit, but increasing this number will add more covariate to the simulation
+  - Updating this value will dynamically:
+    - Extend the data generation formula shown on the right panel
+    - Add new parameter input fields in the sidebar for each added risk factor
+    
+2. Risk and Treatment Parameters
 
-After inputing all the parameters and clicking the "Run Simulation" Button, 
+- Baseline Risk Intercept ($\beta_0$)
+  - Sets the base level of risk when no covariates are present. 
+  Default is 0
 
-Screenshot
+- Baseline Treatment Effect Intercept ($\gamma_0$)
+  - Controls the average treatment effect when no heterogeneity is present. 
+  Default is 0
+
+- Treatment Effect Size ($\gamma$)
+  - Determines the stength of heterogeneity introduced by the effect modifiers.
+  Default is 1.0
+  - Larger values -> greater treatment effect variation across subgroups.
+
+
+3. Covariate-Specific Configuration
+
+For each covariate (effect modifier or other risk factor), two input fields will appear in the sidebar:
+
+- Baseline Covariate Effect ($\beta$)
+  - Impact of $X$ on baseline risk. Default is 0.
+- Probability
+  - Sets the prevalence of each covariate (e.g. 0.5 for a binary variable with equal split). 
+  Default is 0.5
+
+4. Simulation Settings
+
+- Simulation Iterations
+  - Number of repetitions per parameter setting. 
+  More iterations yield more stable results, at the cost of computation time.
+  - Default: 500
+
+- Number of Trees in the Forest
+  - Controls the number of trees in the causal forest algorithm. 
+  More trees usually improve stability and predictive power.
+  - Default: 1000
+
+- Sample Sizes
+  - Comma-separated list of sample sizes to simulate. 
+  The app will loop through each size independently and produce comparative plots.
+  - Example input: 100,200,400,600,800,1000
+
+After configuring all the inputs above, click the “Run Simulation” button to begin. 
+Progress indicators or plots will appear once computation finishes. 
+Simulation progress will be shown at the bottom right of the shiny app.
 
 ### Parameter Tuning Panel
 
