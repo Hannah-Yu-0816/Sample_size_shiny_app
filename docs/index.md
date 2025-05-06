@@ -50,22 +50,6 @@ that seek to uncover treatment effect heterogeneity.
 
 ---
 
-## Key Simulation Settings Explained
-| **Setting**                        | **Description** | **Instruction**
-|:------------------------------------|:----------------|:-----------------|
-| Number of covariates (d)           | Total covariates generated | |
-| Number of effect modifiers (k)     | Covariates that contribute to the treatment effect | |
-| Number of other risk factors (d-k) | Covariates that act as distractors in identifying variables relevant to the treatment effect | |
-| $\beta_0$ | | |
-| $\gamma_0$ | | |
-| $\beta_i$ | | |
-| $\gamma$ | | |
-| X probabilities                     | Control feature distributions for covariates | |
-| sample fraction | proportions of samples used to grow each tree | |
-| honesty fraction | proportions of samples used for splitting | |
-
----
-
 ## Output Interpretation
 
 Two indices are defined to show the sample size needed to reveal the heterogeneity: 
@@ -208,9 +192,15 @@ For each covariate (effect modifier or other risk factor), two input fields will
   The app will loop through each size independently and produce comparative plots.
   - Example input: 100,200,400,600,800,1000
 
+5. Run Simulation
+
 After configuring all the inputs above, click the “Run Simulation” button to begin. 
 Progress indicators or plots will appear once computation finishes. 
 Simulation progress will be shown at the bottom right of the shiny app.
+
+6. Simulation Results
+
+
 
 ### Parameter Tuning Panel
 
@@ -218,6 +208,8 @@ After selecting the overall sample size for your clinical trials. Then you can c
 In this panel, you will have a chance to tune the sample.fraction and honesty.fraction parameters to see their impact on the two indices.
 
 Screenshot
+
+##
 
 
 
