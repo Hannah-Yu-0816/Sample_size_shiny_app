@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
-
 # Sample Size Simulation App
 
 Welcome to the documentation page for the Sample Size Simulation Shiny App.
@@ -126,6 +120,7 @@ To make this efficient, everything is implemented in parallel.
 
 The Simulation Controls Panel allows users to define the core structure and settings of the simulation.
 These parameters control how the synthetic data is generated and how the causal forest is constructed and applied.
+The simulation data generation formula and example data are shown on the right side of the panel.
 Below is a step-by-step explanation of each field:
 
 1.  Structure Settings
@@ -194,11 +189,36 @@ For each covariate (effect modifier or other risk factor), two input fields will
 
 5.  Run Simulation
 
-After configuring all the inputs above, click the “Run Simulation” button to begin.
+After configuring all the inputs above, click the “**Run Simulation**” button to begin.
 Progress indicators or plots will appear once computation finishes.
 Simulation progress will be shown at the bottom right of the shiny app.
 
 6.  Simulation Results
+
+After clicking "Run Simulation", the application displays simulation results as plots. 
+These results help evaluate how well the causal forest captures treatment effect heterogeneity under different sample sizes and simulation settings.
+
+We use the following plot as an example of the results (settings: $X_1$ is an effect modifier, $X_2$ is an other risk factor).
+
+<img width="1021" alt="Screenshot 2025-05-19 at 10 45 38 PM" src="https://github.com/user-attachments/assets/bf529b61-3fb5-4120-a6ee-67da3d4768e1" />
+
+This line chart tracks the performance of the model across varying sample sizes. The x-axis represents the sample size, while the y-axis shows the percentage (%) for each metric. Main metrics included:
+
+- Heterogeneity Captured (black line)
+  - Percentage of simulations where the model correctly identified the treatment effect heterogeneity driven by $X_1$
+  - Improves with larger sample sizes
+
+- Success Ratio of Pure Effect Modifier Leaf (blue line)
+  - Trees that successfully isolate the effect modifier/phenotype
+  - Improves with larger sample sizes
+ 
+Users can use this plot to access how sample size impacts HTE and typically we select the "elbow point" or point where the performace curve starts to flatten. 
+
+In the example above:
+
+- Both Heterogeneity Captured and Success X Tree increase rapidly between sample sizes 100 → 400
+- Around n = 400, the curves begin to stabilize
+- Thus, 400 may be considered the overall sample size for this scenario and will be used as input in the parameter tuning panel
 
 ### Parameter Tuning Panel
 
@@ -206,6 +226,78 @@ After selecting the overall sample size for your clinical trials.
 Then you can come to the second panel: Parameter Tuning.
 In this panel, you will have a chance to tune the sample.fraction and honesty.fraction parameters to see their impact on the two indices.
 
-Screenshot
+1. Parameters Tuning
 
-## 
+- sample.fraction
+
+  Defines the fraction of the full dataset to use in each tree of the causal forest.
+
+  - Value range: (0, 1]
+  - At each tree, only a subset of the data is randomly selected
+  - Smaller values increase variance but reduce correlation between trees (more diversity)
+  - Important restriction: If honesty method used, then sample.fraction must not exceed 0.5
+
+  Example:
+
+  If your total dataset has 1000 samples and
+  - sample.fraction = 0.5 -> random 500 observations are used per tree
+  - sample.fraction = 0.8 -> not allowed when honesty method is used
+
+- honesty.fraction
+
+  Controls how that sampled subset is split into training and estimation parts, to ensure honest estimation of treatment effects.
+
+  - Honesty means: one part of the data is used to decide where to split (train), the other part is used to estimate effects (evaluate)
+  - Helps reduce overfitting and bias
+ 
+  Example:
+
+  With sample.fraction = 0.5 and honesty.fraction = 0.3:
+
+  - Total samples = 1000
+  - → 500 samples used in each tree (due to sample.fraction)
+  - → Of those 500 samples:
+    - 30% (150 samples) used to train the tree (i.e., determine splits)
+    - 70% (350 samples) used to estimate treatment effects at the leaves
+
+2. Run Parameter Tuning Simulation
+
+After setting the overall sample size (from **Simulation Controls Panel**) and parameter ranges, click “**Run Parameter Tunig Simulation**” button to execute the tuning simulation.
+
+What it does:
+- Runs multiple simulations across the selected parameter grid
+- Compares model performance under different configurations
+
+Progress indicators or plots will appear once computation finishes.
+
+Simulation progress will be shown at the bottom right of the shiny app.
+
+3. Simulation Results
+
+After clicking “Run Parameter Tuning Simulation”, two heatmaps will be generated to help evaluate how different combinations of sample.fraction and honesty.fraction affect model performance.
+
+These results are useful for identifying optimal sampling configurations under a fixed total sample size.
+
+- heatmap: Heterogeneity Captured
+
+  Example:
+
+  The following plot used the same parameters setting in the Simulation Controls Panel and used 400 as the overall sample size. 
+
+  <img width="1023" alt="Screenshot 2025-05-19 at 11 24 46 PM" src="https://github.com/user-attachments/assets/d2a2d330-1224-4d59-a5d2-5647dd0a02f4" />
+
+  - Darker → lower heterogeneity capture
+  - Brighter → better model performance
+
+- heatmap: Success Ratio of Pure Effect Modifier Leaf
+
+  Example:
+
+  The following plot used the same parameters setting in the Simulation Controls Panel and used 400 as the overall sample size. 
+
+  <img width="1024" alt="Screenshot 2025-05-19 at 11 25 00 PM" src="https://github.com/user-attachments/assets/f7f33f7f-5ef2-42a3-be2e-5243bd52946c" />
+
+  - Darker → lower heterogeneity capture
+  - Brighter → better model performance
+
+
