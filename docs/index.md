@@ -73,7 +73,10 @@ $$
 100\%
 $$
 
-Where: - $S_1$ is the subset where all selected effect modifiers $X_{ij} = 1$ - $S_0$ is the subset where all selected effect modifiers $X_{ij} = 0$ - The ground truth of CATE is obtained from the data simulation process.
+Where: 
+
+- $S_1$ is the subset where all selected effect modifiers $X_{ij} = 1$ - $S_0$ is the subset where all selected effect modifiers $X_{ij} = 0$
+- The ground truth of CATE is obtained from the data simulation process.
 
 ### Success Ratio of Pure Effect Modifier Leaf
 
