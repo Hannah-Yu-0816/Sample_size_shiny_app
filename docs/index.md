@@ -111,11 +111,12 @@ Here’s how the simulation is structured.
 We start by evaluating a grid of sample sizes.
 At each sample size, we repeat the simulation 500 times (or the time you choose to run) to ensure results are stable and not due to randomness.
 
-For each simulation run, we follow four steps: 1.
-Generate data with effect modifiers we got from the user 2.
-Build a causal forest using that data 3.
-Compute the two heterogeneity indices we defined earlier — heterogeneity captured and tree success rate 4.
-Finally, we record the result, and after 500 runs, we take the median as the final estimate for that sample size
+For each simulation run, we follow four steps: 
+
+1. Generate data with effect modifiers we got from the user
+2. Build a causal forest using that data
+3. Compute the two heterogeneity indices we defined earlier — heterogeneity captured and tree success rate
+4. Finally, we record the result, and after 500 runs, we take the median as the final estimate for that sample size
 
 To make this efficient, everything is implemented in parallel.
 
