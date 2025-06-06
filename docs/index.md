@@ -21,7 +21,11 @@ In clinical trials, traditional sample size calculations typically target the ov
 However, in reality, treatment effects can vary substantially across individuals.
 This heterogeneity in treatment response necessitates a shift from focusing solely on the overall effect to studying heterogeneous treatment effects (HTE).
 
-Our project specifically addresses the following questions: - What sample size is required to reliably detect HTE?
+Despite increasing methodological advances in modeling HTE, a key gap remains: there is limited guidance on how to determine the appropriate sample size required to detect such heterogeneity reliably. Existing sample size formulas are largely designed for average effects and do not account for the increased complexity and statistical demands of identifying subgroups with differential responses.
+
+Our project specifically addresses the following questions: 
+
+- What sample size is required to reliably detect HTE?
 - How can simulation-based methods assist in planning studies that account for treatment effect variability?
 
 Through simulation-based approaches, we aim to provide practical guidance for researchers designing studies that seek to uncover treatment effect heterogeneity.
