@@ -12,10 +12,6 @@ An interactive Shiny application to help researchers plan sample sizes for detec
 3. Install required packages if not already installed
 4. Launch the app 
 
-## Online Demo
-
-[Click here to try the app online](https://hannahyu354.shinyapps.io/shinyapp/)
-
 ### Documentation
 
 For detailed usage instructions, simulation settings explanation, and screenshots, visit our [Documentation Website](https://github.com/Hannah-Yu-0816/Sample_size_shiny_app/blob/main/docs/index.md).
