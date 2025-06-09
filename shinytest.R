@@ -332,7 +332,7 @@ run_simulation <- function(sim_no = 500,
 
 # ======================== UI ==============================
 ui <- dashboardPage(
-  dashboardHeader(title = "Causal Forest Simulation"),
+  dashboardHeader(title = "Sample Size Planning"),
   
   dashboardSidebar(
     width = 400,
