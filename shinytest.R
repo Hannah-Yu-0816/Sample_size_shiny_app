@@ -691,33 +691,33 @@ server <- function(input, output, session) {
             )
           ) %>%
           
-          # Success X
+          # Success
           add_trace(
             x = ~sample_size,
             y = ~success_ratio * 100,
             type = 'scatter',
             mode = 'lines+markers',
-            name = 'Success X Tree',
+            name = 'Success Ratio of Pure EM Leaf',
             line = list(color = 'blue', width = 2),
             marker = list(symbol = 'circle', size = 8, color = 'blue'),
             hovertemplate = paste(
               'Sample Size: %{x}<br>',
-              'Success X: %{y:.2f}%<extra></extra>'
+              'Success Ratio of Pure EM Leaf: %{y:.2f}%<extra></extra>'
             )
           ) %>%
           
-          # Partial Success X
+          # Partial Success
           add_trace(
             x = ~sample_size,
             y = ~partial_success_ratio * 100,
             type = 'scatter',
             mode = 'lines+markers',
-            name = 'Partial Success X Tree',
+            name = 'Partial Success Ratio of Pure EM Leaf',
             line = list(color = 'lightblue', width = 2),
             marker = list(symbol = 'circle', size = 8, color = 'lightblue'),
             hovertemplate = paste(
               'Sample Size: %{x}<br>',
-              'Partial Success X: %{y:.2f}%<extra></extra>'
+              'Partial Success Ratio of Pure EM Leaf: %{y:.2f}%<extra></extra>'
             )
           ) %>%
           
