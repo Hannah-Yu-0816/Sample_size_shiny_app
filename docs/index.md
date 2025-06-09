@@ -50,12 +50,6 @@ Through simulation-based approaches, we aim to provide practical guidance for re
 
 ------------------------------------------------------------------------
 
-## Online Demo
-
-👉 [Try the app online](https://hannahyu354.shinyapps.io/shinyapp/)
-
-------------------------------------------------------------------------
-
 ## Output Interpretation
 
 Two indices are defined to show the sample size needed to reveal the heterogeneity: heterogeneity captured by effect modifiers and success ratio of pure effect modifier leaf.
