@@ -391,7 +391,7 @@ ui <- dashboardPage(
         condition = "input.current_tab == 'tuning_param'",
         numericInput("overall_sample_param", "Overall Sample Size:", value = 600, min = 100),
         sliderInput("sample_fraction", "Sample Fraction:", 
-                    min = 0.1, max = 0.5, value = c(0.2,0.4), step = 0.1),
+                    min = 0.1, max = 0.5, value = c(0.3,0.5), step = 0.1),
         sliderInput("honesty_fraction", "Honesty Fraction:", 
                     min = 0.3, max = 0.8, value = c(0.4,0.7), step = 0.1),
         actionButton("run_tuning_param", "Run Parameter Tuning Simulation", icon = icon("play"))
@@ -794,7 +794,7 @@ server <- function(input, output, session) {
       "<b>2. Treatment Assignment</b><br>",
       "- Treatment indicator \\( A_i \\in \\{0,1\\} \\)<br>",
       "- Random assignment<br>",
-      "- Error \\( \\varepsilon \\sim N(0, \\sigma^2) \\)<br>",
+      "- Error \\( \\varepsilon \\sim N(0, \\sigma^2) \\), default \\sigma = 0.1<br>",
       
       "<b>3. Outcome Generation</b><br>",
       "<u>Treated units \\( (A_i = 1) \\):</u><br>",
