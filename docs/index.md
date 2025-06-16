@@ -202,7 +202,7 @@ These results help evaluate how well the causal forest captures treatment effect
 
 We use the following plot as an example of the results (settings: $X_1$ is an effect modifier, $X_2$ is an other risk factor).
 
-<img width="1021" alt="Screenshot 2025-05-19 at 10 45 38 PM" src="https://github.com/user-attachments/assets/bf529b61-3fb5-4120-a6ee-67da3d4768e1" />
+<img width="1013" alt="Screenshot 2025-06-16 at 2 48 36 PM" src="https://github.com/user-attachments/assets/e203dc3d-c1ab-4dee-afce-bd88cfa1d11a" />
 
 This line chart tracks the performance of the model across varying sample sizes. The x-axis represents the sample size, while the y-axis shows the percentage (%) for each metric. Main metrics included:
 
@@ -286,7 +286,7 @@ These results are useful for identifying optimal sampling configurations under a
 
   The following plot used the same parameters setting in the Simulation Controls Panel and used 400 as the overall sample size. 
 
-  <img width="1023" alt="Screenshot 2025-05-19 at 11 24 46 PM" src="https://github.com/user-attachments/assets/d2a2d330-1224-4d59-a5d2-5647dd0a02f4" />
+  <img width="1024" alt="image" src="https://github.com/user-attachments/assets/739fb35a-8943-4653-91e4-578b386b91f0" />
 
   - Darker → lower heterogeneity capture
   - Brighter → better model performance
@@ -297,7 +297,8 @@ These results are useful for identifying optimal sampling configurations under a
 
   The following plot used the same parameters setting in the Simulation Controls Panel and used 400 as the overall sample size. 
 
-  <img width="1024" alt="Screenshot 2025-05-19 at 11 25 00 PM" src="https://github.com/user-attachments/assets/f7f33f7f-5ef2-42a3-be2e-5243bd52946c" />
+  <img width="1024" alt="image" src="https://github.com/user-attachments/assets/f141ca42-bfdb-4f59-862b-970b27e9e1d0" />
+
 
   - Darker → lower heterogeneity capture
   - Brighter → better model performance
