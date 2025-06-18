@@ -794,7 +794,7 @@ server <- function(input, output, session) {
       "<b>2. Treatment Assignment</b><br>",
       "- Treatment indicator \\( A_i \\in \\{0,1\\} \\)<br>",
       "- Random assignment<br>",
-      "- Error \\( \\varepsilon \\sim N(0, \\sigma^2) \\), default \\sigma = 0.1<br>",
+      "- Error \\( \\varepsilon \\sim N(0, \\sigma^2) \\), default \\( \\sigma = 0.1 \\)<br>",
       
       "<b>3. Outcome Generation</b><br>",
       "<u>Treated units \\( (A_i = 1) \\):</u><br>",
