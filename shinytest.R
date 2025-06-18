@@ -757,9 +757,10 @@ server <- function(input, output, session) {
     
     # formula
     PY1 <- paste0(
-      "P(Y_i(1)) = \\beta_0 + (", beta_expr, ")",
-      if (k > 0) paste0(" + A_i (\\gamma_0 + ", gamma_expr, ")") else "",
-      " + \\varepsilon"
+      "P(Y_i(1)) = \\text{logit}^{-1} \\left( \\beta_0 + ", 
+      beta_expr, 
+      if (k > 0) paste0(" + \\gamma_0 + ", gamma_expr) else "",
+      " + \\varepsilon \\right)"
     )
     
     Y1 <- paste0(
@@ -769,7 +770,7 @@ server <- function(input, output, session) {
       " + \\varepsilon \\right) \\right)"
     ) 
     
-    PY0 <- paste0("P(Y_i(0)) = \\beta_0 + ", beta_expr, " + \\varepsilon")
+    PY0 <- paste0("P(Y_i(0)) = \\text{logit}^{-1} \\left( \\beta_0 + ", beta_expr, " + \\varepsilon \\right)")
     
     Y0 <- paste0(
       "Y_i(0) \\mid X \\sim \\text{Bernoulli} \\left(\\text{logit}^{-1} \\left(\\beta_0 + ", 

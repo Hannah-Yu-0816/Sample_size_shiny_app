@@ -1,0 +1,49 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS Finder metadata
+._*
+
+# macOS indexing and trash
+.Spotlight-V100
+.Trashes
+
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# RStudio project files (optional, remove *.Rproj if you want to keep it)
+*.Rproj
+
+# Compilation intermediate files
+*.o
+*.so
+*.dll
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Output files
+*.pdf
+*.html
+*.md
+
+# Python cache (if any Python code exists)
+__pycache__/
+*.pyc
+
+# VS Code settings (if using VS Code)
+.vscode/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Custom or sensitive files (adjust to your case)
+secret*.*
